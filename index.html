@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <title>Pixelmator – Exercici Flexbox</title>
+  <link rel="preload" href="imatges/hero.jpg" as="image">
+  <link rel="stylesheet" href="estil.css" />
+</head>
+<body>
+  <!-- Barra superior (desapareix amb l'scroll; NO sticky) -->
+  <div class="topbar">
+    <div class="container">
+      <p class="topbar__msg">
+        Nova versió disponible! <a href="#buy" class="link">Buy now</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- NAV inferior sticky amb “frozen glass” -->
+  <header class="nav">
+    <div class="nav__inner container">
+      <a class="nav__logo" href="#home" aria-label="Logo Pixelmator">
+        <!-- Pots canviar per un <img> si tens logo -->
+        <span class="logo-dot"></span>
+        <span class="nav__brand link">Pixelmator Pro 3.7</span>
+      </a>
+
+      <nav class="nav__menu" aria-label="Menú principal">
+        <a href="#pixelmator-pro" class="link">Pixelmator Pro</a>
+        <a href="#photomator" class="link">Photomator</a>
+        <a href="#blog" class="link">Blog</a>
+        <a href="#support" class="link">Support</a>
+        <a href="#tech-specs" class="link">Tech Specs</a>
+        <a href="#user-guide" class="link">User Guide</a>
+        <a href="#buy" class="btn btn--primary">Buy</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home">
+
+    <!-- HERO (full-bleed de punta a punta) -->
+    <section class="hero section--full">
+      <div class="hero__bg" role="img" aria-label="Imatge hero"></div>
+      <div class="hero__content container">
+        <h1 class="hero__title">Crea, retoca i transforma les teves fotos</h1>
+        <p class="hero__subtitle">
+          Eines potents i intuïtives per a professionals i entusiastes.
+        </p>
+        <div class="hero__cta">
+          <a href="#buy" class="btn btn--primary">Buy now</a>
+          <a href="#tech-specs" class="btn btn--ghost">See full specs</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Secció “autocenter” (max 1264px) -->
+    <section id="pixelmator-pro" class="section section--light">
+      <div class="container">
+        <div class="grid-flex">
+          <div class="col">
+            <h2>Pixelmator Pro</h2>
+            <p>
+              Edició d’imatge avançada amb una interfície simple i flux de treball ràpid.
+            </p>
+            <ul class="checks">
+              <li><a href="#raw" class="link">View supported RAW formats</a></li>
+              <li><a href="#adjustments" class="link">See full list of adjustmens</a></li>
+              <li><a href="#specs" class="link">See full specs</a></li>
+            </ul>
+            <div class="cta-row">
+              <a href="#buy" class="btn btn--primary">Buy</a>
+              <a href="#pixelmator-pro" class="link">Pixelmator Pro</a>
+            </div>
+          </div>
+          <div class="col">
+            <img class="card-img" src="imatges/producte1.jpg" alt="Interfície Pixelmator Pro">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Secció “autocenter” amb fons de color -->
+    <section id="photomator" class="section section--brand">
+      <div class="container">
+        <div class="grid-flex grid-flex--reverse">
+          <div class="col">
+            <h2>Photomator</h2>
+            <p>
+              Revelat i ajust de fotografies amb eines d’IA i flux simplificat.
+            </p>
+            <div class="cta-row">
+              <a href="#photomator" class="link">Photomator</a>
+              <a href="#user-guide" class="btn btn--light">User Guide</a>
+            </div>
+          </div>
+          <div class="col">
+            <img class="card-img" src="imatges/producte2.jpg" alt="Interfície Photomator">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vídeo (full-bleed) .mov amb <video> -->
+    <section class="section section--full section--video">
+      <div class="video-wrap">
+        <video class="video" controls playsinline preload="metadata" poster="imatges/hero.jpg">
+          <source src="imatges/demo.mov" type="video/quicktime">
+          <source src="imatges/demo.mp4" type="video/mp4">
+          El teu navegador no admet el vídeo HTML5.
+        </video>
+      </div>
+    </section>
+
+    <!-- Blog / Support (autocenter) -->
+    <section id="blog" class="section section--light">
+      <div class="container">
+        <div class="cards">
+          <article class="card">
+            <h3>Blog</h3>
+            <p>Notícies, tutorials i novetats del producte.</p>
+            <a href="#blog" class="btn btn--ghost">Explora el Blog</a>
+          </article>
+          <article id="support" class="card">
+            <h3>Support</h3>
+            <p>Ajuda, FAQ i contacta amb l’equip.</p>
+            <a href="#support" class="btn btn--ghost">Ves a Support</a>
+          </article>
+          <article id="tech-specs" class="card">
+            <h3>Tech Specs</h3>
+            <p>Compatibilitat, requisits i especificacions tècniques.</p>
+            <a href="#tech-specs" class="btn btn--ghost">Veure Tech Specs</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- RAW / Adjustments (autocenter) -->
+    <section id="raw" class="section">
+      <div class="container">
+        <div class="grid-flex">
+          <div class="col">
+            <h2>Formats RAW</h2>
+            <p>Llista de càmeres i formats compatibles.</p>
+            <a href="#raw" class="link">View supported RAW formats</a>
+          </div>
+          <div id="adjustments" class="col">
+            <h2>Ajustos disponibles</h2>
+            <p>Filtres, corbes, color, detall i molt més.</p>
+            <a href="#adjustments" class="link">See full list of adjustmens</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- User Guide + CTA Buy (autocenter) -->
+    <section id="user-guide" class="section section--brand-soft">
+      <div class="container">
+        <div class="grid-flex">
+          <div class="col">
+            <h2>User Guide</h2>
+            <p>Guies pas a pas per començar i dominar les eines.</p>
+            <a href="#user-guide" class="btn btn--light">Read User Guide</a>
+          </div>
+          <div id="buy" class="col buybox">
+            <h2>Compra ara</h2>
+            <p>Accés immediat a totes les funcionalitats.</p>
+            <a href="#buy" class="btn btn--primary btn--wide">Buy now</a>
+            <a href="#specs" class="link">See full specs</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <a href="#home" class="link">Logo</a>
+      <div class="footer__links">
+        <a href="#pixelmator-pro" class="link">Pixelmator Pro</a>
+        <a href="#photomator" class="link">Photomator</a>
+        <a href="#blog" class="link">Blog</a>
+        <a href="#support" class="link">Support</a>
+        <a href="#tech-specs" class="link">Tech Specs</a>
+        <a href="#user-guide" class="link">User Guide</a>
+        <a href="#buy" class="btn btn--primary">Buy</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
