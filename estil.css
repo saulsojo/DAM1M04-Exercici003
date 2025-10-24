@@ -1,0 +1,247 @@
+:root{
+  --maxw: 1264px;               /* Autocenter global */
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,.15);
+  --bg: #0b0b0c;
+  --text: #eaeaea;
+  --muted: #bdbdbd;
+  --brand: #4f7cff;             /* Color d’accent */
+  --brand-strong: #2f5ef4;
+  --brand-soft: #233053;
+  --white: #ffffff;
+}
+
+*{ box-sizing: border-box; }
+html,body{ height: 100%; }
+body{
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+/* Autocenter global */
+.container{
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* TOPBAR (no sticky) */
+.topbar{
+  background: #121218;
+  color: var(--muted);
+  font-size: 14px;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.topbar__msg{
+  margin: 0;
+  padding: 8px 0;
+}
+.link{
+  color: var(--text);
+  text-decoration: none;
+  cursor: pointer;                 /* Cursor mà per enllaços */
+}
+.link:hover{ color: var(--brand); }
+
+/* NAV sticky amb efecte “frozen glass” */
+.nav{
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: saturate(180%) blur(12px);      /* Frozen glass */
+  -webkit-backdrop-filter: saturate(180%) blur(12px);
+  background: rgba(10,10,12,.55);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.nav__inner{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 64px;
+  gap: 16px;
+}
+.nav__logo{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+.logo-dot{
+  width: 14px; height: 14px; border-radius: 50%;
+  background: linear-gradient(135deg, #7aa2ff, #4f7cff);
+  box-shadow: 0 0 12px rgba(79,124,255,.8);
+}
+.nav__brand{ font-weight: 600; }
+.nav__menu{
+  display: flex;                   /* FLEXBOX */
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+/* BOTONS */
+.btn{
+  display: inline-flex;            /* FLEXBOX */
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: transform .12s ease, background .2s ease, border-color .2s ease;
+  font-weight: 600;
+}
+.btn:hover{ transform: translateY(-1px); }
+.btn--primary{
+  background: var(--brand);
+  color: var(--white);
+  border-color: rgba(255,255,255,.12);
+}
+.btn--primary:hover{ background: var(--brand-strong); }
+.btn--ghost{
+  background: transparent;
+  color: var(--text);
+  border-color: rgba(255,255,255,.2);
+}
+.btn--ghost:hover{
+  background: rgba(255,255,255,.06);
+}
+.btn--light{
+  background: var(--white);
+  color: #111;
+}
+.btn--light:hover{
+  background: #eaeaea;
+}
+.btn--wide{ min-width: 180px; }
+
+/* HERO (full-bleed) */
+.section{ padding: 64px 0; }
+.section--full{ padding: 0; }
+.hero{
+  position: relative;
+  min-height: 68vh;
+  display: flex;                   /* FLEXBOX */
+  align-items: center;
+}
+.hero__bg{
+  position: absolute; inset: 0;
+  background: url('imatges/hero.jpg') center/cover no-repeat;
+  filter: saturate(115%) contrast(105%);
+}
+.hero__content{
+  position: relative;
+  padding: 96px 24px;
+}
+.hero__title{
+  font-size: clamp(28px, 4.6vw, 56px);
+  margin: 0 0 12px 0;
+}
+.hero__subtitle{
+  margin: 0 0 24px 0;
+  color: var(--muted);
+}
+.hero__cta{ display: flex; gap: 12px; flex-wrap: wrap; }
+
+/* Seccions autocenter */
+.section--light{ background: #0f0f14; }
+.section--brand{ background: #121a32; }
+.section--brand-soft{ background: #101522; }
+
+/* Disposició 2 columnes amb Flexbox */
+.grid-flex{
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.grid-flex--reverse{ flex-direction: row-reverse; }
+.col{ flex: 1 1 320px; }
+
+/* Imatges arrodonides amb ombra via CSS (no de la imatge) */
+.card-img{
+  width: 100%;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  display: block;
+}
+
+/* Llistes d’enllaços */
+.checks{
+  margin: 16px 0 24px 0;
+  padding: 0 0 0 18px;
+}
+.checks li{ margin: 6px 0; }
+
+/* Files de crida a l’acció */
+.cta-row{
+  display: flex;                   /* FLEXBOX */
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Vídeo full-bleed */
+.section--video{ background: #0b0b0c; }
+.video-wrap{ width: 100%; }
+.video{
+  width: 100%;
+  display: block;
+  max-height: 80vh;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+/* Targetes (Blog/Support/Tech Specs) */
+.cards{
+  display: flex;                   /* FLEXBOX */
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.card{
+  flex: 1 1 300px;
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--shadow);
+}
+.card h3{ margin-top: 0; }
+
+/* Caixa de compra */
+.buybox{
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: var(--radius);
+  padding: 24px;
+}
+
+/* Peu */
+.footer{
+  padding: 40px 0;
+  border-top: 1px solid rgba(255,255,255,.08);
+  background: #0f0f14;
+}
+.footer__inner{
+  display: flex;                   /* FLEXBOX */
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.footer__links{
+  display: flex;                   /* FLEXBOX */
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* Responsivitat simple (sense GRID) */
+@media (max-width: 720px){
+  .nav__menu{ gap: 12px; }
+  .hero__content{ padding: 72px 24px; }
+}
